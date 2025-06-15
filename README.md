@@ -1,0 +1,2 @@
+# Artemis
+Discord Development Monorepository
