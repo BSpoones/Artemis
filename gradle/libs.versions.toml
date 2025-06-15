@@ -1,0 +1,28 @@
+
+[libraries]
+
+jda = { module = "net.dv8tion:JDA", version.ref = "jda" }
+
+# Databases
+mongodb = { module = "org.mongodb:mongodb-driver-sync", version.ref = "mongodb" }
+morphia-core = { module = "dev.morphia.morphia:morphia-core", version.ref = "morphia-core" }
+morphia-kotlin = { module = "dev.morphia.morphia:morphia-kotlin", version.ref = "morphia-kotlin" }
+
+# Config
+configurate = { module = "org.spongepowered:configurate-gson", version.ref = "configurate" }
+
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+
+[versions]
+
+jda = "5.6.1"
+
+mongodb = "4.11.0"
+morphia-core = "2.4.12"
+morphia-kotlin = "2.4.12"
+
+configurate = "4.1.2"
+
+guava = "32.1.2-jre"
+slf4j = "2.0.17"
