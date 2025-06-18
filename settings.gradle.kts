@@ -3,7 +3,7 @@ rootProject.name = "Artemis"
 includeBuild("conventions")
 
 val PLUGINS = listOf(
-    "artemis-core"
+    "artemis"
 ).map { Project(it) }
 
 PLUGINS.forEach(Project::setup)
