@@ -1,5 +1,8 @@
 package org.beespoon.artemis
 
-interface ArtemisModule {
+abstract class ArtemisModule(val name: String){
+
+    fun onStart() {}
+    fun onStop() {}
 
 }
