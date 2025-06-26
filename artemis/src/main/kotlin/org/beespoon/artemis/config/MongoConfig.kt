@@ -3,7 +3,7 @@ package org.beespoon.artemis.config
 import com.mongodb.ConnectionString
 import com.mongodb.MongoClientSettings
 import org.beespoon.artemis.util.config.base.ActionableConfig
-import org.bspoones.zeus.extensions.URLEncode
+import org.beespoon.artemis.util.extensions.URLEncode
 import java.nio.file.WatchEvent
 import org.bspoones.zeus.storage.MongoConnection
 import org.bspoones.zeus.util.scheduling.delayTask

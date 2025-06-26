@@ -4,7 +4,7 @@ import org.beespoon.artemis.Artemis
 import org.beespoon.artemis.util.config.anotation.ConfigDirectory
 import org.beespoon.artemis.util.config.base.ArtemisConfig
 import org.beespoon.artemis.util.config.base.CommandConfig
-import org.beespoon.artemis.util.command.CommandRegistry
+import org.beespoon.artemis.util.command_old.CommandRegistry
 
 inline fun <reified T : ArtemisConfig> getConfig(): T = ConfigManager.getConfig(T::class.java)
 fun <T : ArtemisConfig> getConfig(config: Class<T>): T = ConfigManager.getConfig(config)
