@@ -2,18 +2,20 @@ package org.beespoon.artemis.config
 
 import net.dv8tion.jda.api.requests.GatewayIntent
 import org.beespoon.artemis.Artemis
+import org.beespoon.artemis.util.config.anotation.ConfigDirectory
 import org.beespoon.artemis.util.config.base.ActionableConfig
 import org.spongepowered.configurate.objectmapping.ConfigSerializable
 import java.nio.file.WatchEvent
 import kotlin.system.exitProcess
 
 /**
- * Main Zeus Config file
+ * Main Artemis Config file
  *
  * This file contains all setup configuration
  */
 @ConfigSerializable
-internal class CoreConfig : ActionableConfig("core") {
+@ConfigDirectory("artemis")
+internal class CoreConfig : ActionableConfig() {
     var token: String = ""
 
     var globalMessagePrefix: String = "!"
