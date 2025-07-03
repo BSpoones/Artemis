@@ -39,8 +39,8 @@ class ArtemisModuleLoader(val loader: ClassLoader) {
             logger.info("Module $name Started")
 
         }
-
-        logger.info("${modules.size} modules loaded!")
+        val endTime = System.nanoTime()
+        logger.info("${modules.size} modules loaded in ${(endTime - startTime) / 1000}!")
 
         // TODO - Config loading, Command loading, etc.
     }
