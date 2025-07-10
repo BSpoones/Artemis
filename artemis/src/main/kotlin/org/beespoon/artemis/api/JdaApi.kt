@@ -9,6 +9,14 @@ object JdaApi {
 
     private lateinit var jda: JDA
 
+    fun api(): JDA {
+        if (this::jda.isInitialized) {
+            return jda
+        } else {
+            throw IllegalArgumentException("JDA Api has not been initialised!")
+        }
+    }
+
     fun setup() {
         val config = getConfig<CoreConfig>()
 
