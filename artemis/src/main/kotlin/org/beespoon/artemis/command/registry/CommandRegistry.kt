@@ -38,7 +38,7 @@ object CommandRegistry {
         types.forEach { commandType ->
             val registry = getCommandRegistry(commandType)
             val info = getCommandInfo(function, commandType)
-            val parentNode = searchNodeTree(registry, commandType, info.name)
+            val parentNode = searchNodeTree(registry, info.name)
 
             val nodeName = if (parentNode != null) {
                 info.name.removePrefix("${parentNode.fullName} ").trim()
