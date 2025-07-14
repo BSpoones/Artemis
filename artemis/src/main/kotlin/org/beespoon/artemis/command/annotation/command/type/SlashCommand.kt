@@ -1,9 +1,7 @@
 package org.beespoon.artemis.command.annotation.command.type
 
+import org.beespoon.artemis.command.annotation.command.CommandInformation
+
 @Retention(AnnotationRetention.RUNTIME)
 @Target(AnnotationTarget.FUNCTION)
-annotation class SlashCommand(
-    val name: String,
-    val description: String,
-    val usage: String = ""
-)
+annotation class SlashCommand(val info: CommandInformation)
