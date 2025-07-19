@@ -1,7 +1,6 @@
-package org.beespoon.artemis.command.registry
+package org.beespoon.artemis.command.registry.base
 
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
-import net.dv8tion.jda.api.interactions.commands.Command
 import net.dv8tion.jda.api.interactions.commands.build.CommandData
 import org.beespoon.artemis.command.annotation.command.CommandOption
 import org.beespoon.artemis.util.extensions.getOptionValue

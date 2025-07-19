@@ -8,6 +8,7 @@ import org.beespoon.artemis.command.annotation.command.type.MessageCommand
 import org.beespoon.artemis.command.annotation.command.type.MessageContextCommand
 import org.beespoon.artemis.command.annotation.command.type.SlashCommand
 import org.beespoon.artemis.command.annotation.command.type.UserContextCommand
+import org.beespoon.artemis.command.registry.base.CommandNode
 import org.slf4j.LoggerFactory
 import kotlin.reflect.KFunction
 import kotlin.reflect.full.findAnnotation
