@@ -2,10 +2,10 @@ package org.beespoon.artemis.command.option
 
 import net.dv8tion.jda.api.entities.channel.Channel
 import net.dv8tion.jda.api.interactions.commands.Command
-import org.beespoon.artemis.command.annotation.choice.configurable.StaticChannelTypeChoices
-import org.beespoon.artemis.command.annotation.choice.configurable.StaticDoubleChoices
-import org.beespoon.artemis.command.annotation.choice.configurable.StaticIntegerChoices
-import org.beespoon.artemis.command.annotation.choice.configurable.StaticStringChoices
+import org.beespoon.artemis.command.annotation.choice.configurable.ConfigChannelTypeChoices
+import org.beespoon.artemis.command.annotation.choice.configurable.ConfigDoubleChoices
+import org.beespoon.artemis.command.annotation.choice.configurable.ConfigIntegerChoices
+import org.beespoon.artemis.command.annotation.choice.configurable.ConfigStringChoices
 import org.beespoon.artemis.command.annotation.choice.static.ChannelTypeChoices
 import org.beespoon.artemis.command.annotation.choice.static.DoubleChoices
 import org.beespoon.artemis.command.annotation.choice.static.IntegerChoices
@@ -31,10 +31,10 @@ internal object ChoiceHandler {
         IntegerChoices::class to Int::class,
         DoubleChoices::class to Double::class,
         ChannelTypeChoices::class to Channel::class,
-        StaticStringChoices::class to String::class,
-        StaticIntegerChoices::class to Int::class,
-        StaticDoubleChoices::class to Double::class,
-        StaticChannelTypeChoices::class to Channel::class,
+        ConfigStringChoices::class to String::class,
+        ConfigIntegerChoices::class to Int::class,
+        ConfigDoubleChoices::class to Double::class,
+        ConfigChannelTypeChoices::class to Channel::class,
 
     )
 
@@ -79,10 +79,10 @@ internal object ChoiceHandler {
             is IntegerChoices -> annotation.choices.toList()
             is DoubleChoices -> annotation.choices.toList()
             is ChannelTypeChoices -> annotation.choices.toList()
-            is StaticStringChoices -> getVariableChoices(annotation)
-            is StaticIntegerChoices ->getVariableChoices(annotation)
-            is StaticDoubleChoices ->getVariableChoices(annotation)
-            is StaticChannelTypeChoices ->getVariableChoices(annotation)
+            is ConfigStringChoices -> getVariableChoices(annotation)
+            is ConfigIntegerChoices ->getVariableChoices(annotation)
+            is ConfigDoubleChoices ->getVariableChoices(annotation)
+            is ConfigChannelTypeChoices ->getVariableChoices(annotation)
             else -> throw IllegalArgumentException("Invalid Choice annotation")
         }
     }
@@ -99,10 +99,10 @@ internal object ChoiceHandler {
      */
     private fun getVariableChoices(annotation: Annotation): List<Any> {
         val id = when(annotation) {
-            is StaticStringChoices -> annotation.id
-            is StaticIntegerChoices -> annotation.id
-            is StaticDoubleChoices -> annotation.id
-            is StaticChannelTypeChoices -> annotation.id
+            is ConfigStringChoices -> annotation.id
+            is ConfigIntegerChoices -> annotation.id
+            is ConfigDoubleChoices -> annotation.id
+            is ConfigChannelTypeChoices -> annotation.id
             else -> throw IllegalArgumentException("Invalid annotation type")
         }
 
