@@ -1,13 +1,14 @@
 package org.beespoon.artemis.command.argument
 
+import net.dv8tion.jda.api.events.interaction.GenericAutoCompleteInteractionEvent
 import net.dv8tion.jda.api.events.interaction.command.GenericCommandInteractionEvent
 import java.util.concurrent.CompletableFuture
 
-abstract class ArgumentParser<T> {
+abstract class ArgumentParser<Input, Result> {
 
-    abstract class parse<T>(event: GenericCommandInteractionEvent)
+    abstract fun parse(event: GenericCommandInteractionEvent): ArgumentParseResult<Result>
 
-    open fun suggestions(event: GenericCommandInteractionEvent, current: String): CompletableFuture<List<String>> {
+    open fun suggestions(event: GenericAutoCompleteInteractionEvent, current: Input): CompletableFuture<List<String>> {
         return CompletableFuture.completedFuture(emptyList())
     }
 }
