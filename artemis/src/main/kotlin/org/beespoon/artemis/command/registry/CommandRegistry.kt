@@ -2,7 +2,7 @@ package org.beespoon.artemis.command.registry
 
 import net.dv8tion.jda.api.interactions.commands.Command
 import net.dv8tion.jda.api.interactions.commands.build.CommandData
-import org.beespoon.artemis.command.ArtemisCommands
+import org.beespoon.artemis.command.ArtemisCommand
 import org.beespoon.artemis.command.annotation.command.CommandInformation
 import org.beespoon.artemis.command.annotation.command.type.MessageCommand
 import org.beespoon.artemis.command.annotation.command.type.MessageContextCommand
@@ -25,7 +25,7 @@ object CommandRegistry {
 
 
     // Registers a command object
-    fun <T : ArtemisCommands> registerCommands(clazz: T) {
+    fun <T : ArtemisCommand> registerCommands(clazz: T) {
         clazz::class.memberFunctions.forEach { function ->
             registerFunction(function)
         }

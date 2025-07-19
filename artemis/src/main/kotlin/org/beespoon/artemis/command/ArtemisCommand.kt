@@ -1,3 +1,3 @@
 package org.beespoon.artemis.command
 
-interface ArtemisCommands
+interface ArtemisCommand
