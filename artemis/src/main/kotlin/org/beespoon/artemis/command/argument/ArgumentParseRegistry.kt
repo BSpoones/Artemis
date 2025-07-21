@@ -9,6 +9,9 @@ object ArgumentParseRegistry {
 
     private val parsers = mutableMapOf<KClass<*>, ArgumentParser<*, *>>()
 
+    // Suggestion ID -> Returned suggestions
+    private val nonParserSuggestions: MutableMap<String, List<*>> = mutableMapOf()
+
     inline fun <reified Input : Any, reified Result : Any> register(parser: ArgumentParser<Input, Result>) {
         register(Input::class, parser)
     }
@@ -44,6 +47,13 @@ object ArgumentParseRegistry {
         return parser.suggestions(event, current)
     }
 
+    fun suggestions(event: CommandAutoCompleteInteractionEvent, id: String): CompletableFuture<List<String>> {
+        val current = event.focusedOption.value
+        val results = nonParserSuggestions[id]?.map { it.toString() }?.filter { it.contains(current) }
+            ?: return CompletableFuture.completedFuture(emptyList())
+        return CompletableFuture.completedFuture(results)
+    }
+    
     inline fun <reified Result : Any> suggestions(event: CommandAutoCompleteInteractionEvent): CompletableFuture<List<String>> {
         return suggestions(Result::class, event)
     }
